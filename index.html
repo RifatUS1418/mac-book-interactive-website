@@ -41,8 +41,10 @@
 
                 <!-- Delivery option -->
                 <h4 class="mt-5">Choose your delivery option</h4>
-                <button type="button" class="btn btn-outline-dark">Friday, Aug 25 FREE Prime Delivery</button>
-                <button type="button" class="btn btn-outline-dark">Friday, Aug 21 Delivery charge $20</button>
+                <button id="free-delivery" type="button" class="btn btn-outline-dark">Friday, Aug 25 FREE Prime
+                    Delivery</button>
+                <button id="charged-delivery" type="button" class="btn btn-outline-dark">Friday, Aug 21 Delivery charge
+                    $20</button>
 
                 <!-- Costing -->
                 <div class="w-50 mt-5 lh-0 fw-bold">
@@ -67,16 +69,17 @@
                         <p>$<span id="total-price">1299</span></p>
                     </div>
                 </div>
+                <!-- promo code -->
                 <p>Add Promo code</p>
-                <input type="text" name="" id="">
-                <button type="button" class="btn btn-danger">Add</button>
+                <input id="promo-code" type="text" name="">
+                <button id="apply-button" type="button" class="btn btn-danger" disabled>Apply</button>
             </section>
         </div>
 
-        <!-- promo code  -->
+        <!-- Total after promo code  -->
         <div class="fs-2 text-center fw-bold border-top mt-2">
             <span>Total</span>
-            <span>$1299</span>
+            <span>$<span id="discounted-total">1299</span></span>
         </div>
     </main>
     <script src=" js/script.js">
