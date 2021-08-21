@@ -1,9 +1,11 @@
-function productCost(price, memory, click, storage, delivery, total) {
+function productCost(click, price, memory, storage, delivery, total) {
+    // handle best price
     const bestPrice = document.getElementById(price);
     const bestPriceText = bestPrice.innerText;
     const bestPriceAmount = parseInt(bestPriceText);
-    // handle memory cost
+    // grap click
     document.getElementById(click);
+    // handle memory cost
     const memoryCost = document.getElementById(memory);
     if (click == 'short-memory') {
         memoryCost.innerText = 0;
@@ -47,47 +49,42 @@ function productCost(price, memory, click, storage, delivery, total) {
     const beforeDiscountTotal = document.getElementById('discounted-total');
     const beforeDiscountAmount = bestPriceAmount + memoryCostAmount + storageCostAmount + deliveryCostAmount;
     beforeDiscountTotal.innerText = beforeDiscountAmount;
-    return afterDiscountTotal.innerText;
-}
+    return previousTotalPrice.innerText;
+};
+
+// memory click event
+document.getElementById('short-memory').addEventListener('click', function () {
+    productCost('short-memory', 'best-price', 'memory-cost', 'storage-cost', 'delivery-cost', 'total-price');
+});
+
+document.getElementById('large-memory').addEventListener('click', function () {
+    productCost('large-memory', 'best-price', 'memory-cost', 'storage-cost', 'delivery-cost', 'total-price');
+});
+
+// storage click event
+document.getElementById('short-storage').addEventListener('click', function () {
+    productCost('short-storage', 'best-price', 'memory-cost', 'storage-cost', 'delivery-cost', 'total-price');
+});
+
+document.getElementById('medium-storage').addEventListener('click', function () {
+    productCost('medium-storage', 'best-price', 'memory-cost', 'storage-cost', 'delivery-cost', 'total-price');
+});
+
+document.getElementById('large-storage').addEventListener('click', function () {
+    productCost('large-storage', 'best-price', 'memory-cost', 'storage-cost', 'delivery-cost', 'total-price');
+});
+
+// delivery click event
+document.getElementById('free-delivery').addEventListener('click', function () {
+    productCost('free-delivery', 'best-price', 'memory-cost', 'storage-cost', 'delivery-cost', 'total-price');
+});
+
+document.getElementById('charged-delivery').addEventListener('click', function () {
+    productCost('charged-delivery', 'best-price', 'memory-cost', 'storage-cost', 'delivery-cost', 'total-price');
+});
 
 
-
-const shortMemroy = document.getElementById('short-memory').addEventListener('click', function () {
-    productCost('best-price', 'memory-cost', 'short-memory', 'storage-cost', 'delivery-cost', 'total-price');
-
-})
-
-const largeMemory = document.getElementById('large-memory').addEventListener('click', function () {
-    productCost('best-price', 'memory-cost', 'large-memory', 'storage-cost', 'delivery-cost', 'total-price');
-
-})
-
-
-const shortStorage = document.getElementById('short-storage').addEventListener('click', function () {
-    productCost('best-price', 'memory-cost', 'short-storage', 'storage-cost', 'delivery-cost', 'total-price');
-
-})
-const mediumStorage = document.getElementById('medium-storage').addEventListener('click', function () {
-    productCost('best-price', 'memory-cost', 'medium-storage', 'storage-cost', 'delivery-cost', 'total-price');
-
-})
-const largeSotrage = document.getElementById('large-storage').addEventListener('click', function () {
-    productCost('best-price', 'memory-cost', 'large-storage', 'storage-cost', 'delivery-cost', 'total-price');
-
-})
-
-
-const freeDelivery = document.getElementById('free-delivery').addEventListener('click', function () {
-    productCost('best-price', 'memory-cost', 'free-delivery', 'storage-cost', 'delivery-cost', 'total-price');
-
-})
-
-
-const chargedMemory = document.getElementById('charged-delivery').addEventListener('click', function () {
-    productCost('best-price', 'memory-cost', 'charged-delivery', 'storage-cost', 'delivery-cost', 'total-price');
-
-})
-
+// handle apply button
 document.getElementById('promo-code').addEventListener('keyup', function (event) {
     const applyBtn = document.getElementById('apply-button');
     if (event.target.value == 'stevekaku') {
@@ -96,11 +93,13 @@ document.getElementById('promo-code').addEventListener('keyup', function (event)
     else {
         applyBtn.setAttribute('disabled', true);
     }
-})
+});
 
+// dicsount counting
 document.getElementById('apply-button').addEventListener('click', function () {
     const promoCodeField = document.getElementById('promo-code');
     const promoCodeText = promoCodeField.value;
+    // handle promo code matching
     if (promoCodeText.toLowerCase() == 'stevekaku') {
         const discountedTotal = document.getElementById('discounted-total');
         const discountedTotalText = discountedTotal.innerText;
@@ -111,5 +110,4 @@ document.getElementById('apply-button').addEventListener('click', function () {
         afterDiscountTotal.innerText = afterdiscountAmount;
     }
     promoCodeField.value = '';
-})
-
+});
