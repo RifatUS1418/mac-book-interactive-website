@@ -104,6 +104,7 @@ document.getElementById('apply-button').addEventListener('click', function () {
         const discountedTotal = document.getElementById('discounted-total');
         const discountedTotalText = discountedTotal.innerText;
         const discountedTotalAmount = parseFloat(discountedTotalText);
+        // discount calculation
         const discount = discountedTotalAmount * (20 / 100);
         const afterdiscountAmount = discountedTotalAmount - discount;
         const afterDiscountTotal = document.getElementById('discounted-total');
